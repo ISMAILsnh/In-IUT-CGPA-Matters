@@ -1,0 +1,1 @@
+gcc -I modules test_course.c course.c -o test_course.exe.\test_course.exе
