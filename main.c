@@ -2,6 +2,7 @@
 #include "course.h"
 #include "courseResult.h"
 #include "gpa.h"
+
 int main()
 {
     Course courses[1000];
@@ -17,14 +18,10 @@ int main()
         double marks;
         printf("Marks for %s: ", courses[i].name);
         scanf("%lf", &marks);
-        scanf("%1f", &marks);
 
         results[i] = createCourseResult(&courses[i], marks);
     }
-    for (int i = 0; i < n_courses; i++)
-    {
-        viewCourseResult(results[i]);
-    }
+
     printf("\nResults\n");
 
     for (int i = 0; i < n_courses; i++)
@@ -34,5 +31,6 @@ int main()
     }
 
     printf("CGPA: %.2f\n", calculateGPA(results, n_courses));
+
     return 0;
 }
