@@ -7,11 +7,13 @@ int testCGPA()
 {
     Course courses[2] = {
         createCourse("CSE 4107", "Structured Programming I", 3.0),
-        createCourse("CSE 4108", "Structured Programming I Lab", 1.5)};
+        createCourse("CSE 4108", "Structured Programming I Lab", 1.5)
+    };
 
     CourseResult results[2] = {
-        createCourseResult(&courses[0], 240),
-        createCourseResult(&courses[1], 105)};
+        createCompletedCourseResult(&courses[0], 240),
+        createCompletedCourseResult(&courses[1], 105)
+    };
 
     double cgpa = calculateGPA(results, 2);
 
@@ -21,7 +23,7 @@ int testCGPA()
 int testGradePoint()
 {
     Course course = createCourse("CSE 4107", "Structured Programming I", 3.0);
-    CourseResult result = createCourseResult(&course, 240);
+    CourseResult result = createCompletedCourseResult(&course, 240);
 
     return getGradePoint(result) == 4.00;
 }
@@ -29,7 +31,7 @@ int testGradePoint()
 int testLetterGrade()
 {
     Course course = createCourse("CSE 4108", "Structured Programming I Lab", 1.5);
-    CourseResult result = createCourseResult(&course, 105);
+    CourseResult result = createCompletedCourseResult(&course, 105);
 
     return getLetterGrade(result)[0] == 'A' &&
            getLetterGrade(result)[1] == '+';
